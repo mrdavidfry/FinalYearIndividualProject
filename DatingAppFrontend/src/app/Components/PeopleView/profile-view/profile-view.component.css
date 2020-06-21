@@ -1,0 +1,16 @@
+.profile-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-view-container .profile-images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profile-view-container h2, p {
+  padding: 10px;
+}

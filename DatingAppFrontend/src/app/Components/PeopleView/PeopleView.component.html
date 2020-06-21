@@ -1,0 +1,37 @@
+<div class="main-container">
+  <div class="selection-bar-container">
+    <div class="selection-bar">
+      <h3>Recommendation Feature Selection</h3>
+      <div class="checkbox-container">
+        <form [formGroup]="recommendationTypeForm">
+            <mat-checkbox id="imageSimilarity" name="imageSimilarity" value="imageSimilarity" formControlName="imageSimilarity">
+              <label for="imageSimilarity">Image</label>
+            </mat-checkbox>
+
+            <mat-checkbox matInput id="descriptionSimilarity" name="descriptionSimilarity" value="descriptionSimilarity" formControlName="textSemanticSimilarity">
+              <label for="descriptionSimilarity">Description Semantics</label>
+            </mat-checkbox>
+
+            <mat-checkbox matInput id="sentimentSimilarity" name="sentimentSimilarity" value="sentimentSimilarity" formControlName="textSentimentSimilarity">
+              <label for="sentimentSimilarity">Description Sentiment</label>
+            </mat-checkbox>
+        </form>
+      </div>
+
+      <button mat-raised-button (click)="filterRecommendations()">Apply</button>
+    </div>
+  </div>
+  <div class="profile-container" *ngFor="let profile of profiles">
+    <img class="profile-image" [src]="profile.userImages[0] != null ? profile.userImages[0] : '../../../../assets/Images/blankprofileimage.png'" height="300px">
+    <h2 class="user-name">{{profile.firstName}} {{profile.lastName || ' '}}</h2>
+    <p class="user-description">{{profile.userDescription}}</p>
+
+    <p class="additional-detail">Image labels: <a *ngFor="let label of profile.imageLabels">{{label}}, </a></p>
+    <p class="additional-detail">Image similarity: {{profile.imageSimilarity || 'N/A'}}</p>
+    <p class="additional-detail">Text sentiment similarity: {{profile.sentimentSimilarity || 'N/A'}}</p>
+    <p class="additional-detail">Text semantic similarity: {{profile.textSemanticSimilarity  || 'N/A'}}</p>
+    <button mat-raised-button (click)="connectWithProfile(profile.userId)">Connect</button>
+    <button mat-raised-button (click)="openUserProfileDialog(profile)">View Profile</button>
+    <button mat-raised-button (click)="openReportDialog(profile.userId)">Report</button>
+  </div>
+</div>

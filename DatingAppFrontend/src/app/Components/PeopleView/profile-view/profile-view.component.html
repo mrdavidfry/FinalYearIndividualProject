@@ -1,0 +1,13 @@
+<div class="profile-view-container">
+  <h2>{{userProfile.firstName}} {{userProfile.lastName}}</h2>
+  <div class="profile-images">
+    <div *ngFor="let imgUrl of userProfile.userImages">
+      <img [src]="imgUrl">
+    </div>
+  </div>
+  <p>{{userProfile.userDescription}}</p>
+  <div>
+    <button mat-raised-button (click)="connectWithProfile(userProfile.userId)">Connect</button>
+    <button mat-raised-button (click)="openReportDialog(userProfile.userId)">Report</button>
+  </div>
+</div>

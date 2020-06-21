@@ -1,0 +1,30 @@
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-container {
+  float:left; display:inline;
+  margin: 10px;
+  width: 550px;
+  height: 300px;
+  border-radius: 25px;
+  background: #cae3f9;
+}
+
+.event-container img {
+  margin: 20px;
+  float: left;
+  border-radius: 125px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}

@@ -1,0 +1,64 @@
+.grid {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-gap: 20px;
+  padding: 75px;
+}
+
+.match-display-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: 20px;
+  border-color: #e6f9ef;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: white;
+  grid-column: 1/5;
+  grid-row: 1/8;
+}
+
+.match-grid-container {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  text-align: center;
+  background-color: white;
+}
+
+.profile-display-container {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #e6f9ef;
+  border-style: solid;
+  border-color: #e6f9ef;
+  grid-column: 5/-1;
+  grid-row: 1/8;
+}
+
+.controls-container {
+  grid-column: 1/-1;
+  grid-row: 8/8 ;
+  display: flex;
+  justify-content: center;
+}
+
+#likeButton, #hotButton, #rejectButton, #flagButton {
+  border-radius: 25px;
+  border-style: solid;
+  color: #e6f9ef;
+  background-color: #4DB5AB;
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 100px;
+  height: 50px;
+}
+
+img {
+  padding-left: 135px;
+  opacity: 50%;
+  height: 100%;
+}

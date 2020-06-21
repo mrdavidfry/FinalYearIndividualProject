@@ -1,0 +1,10 @@
+<div class="main-container">
+  <div class="event-container" *ngFor="let event of events">
+    <img [src]='event.imagesUrls' height="300px">
+    <h2 class="event-title">{{event.title}}</h2>
+    <h2 class="event-description">{{event.description}}</h2>
+    <button (click)="viewEvent(event.event_id)">View Event</button>
+    <button (click)="reportEvent(event.event_id)">Report</button>
+  </div>
+</div>
+

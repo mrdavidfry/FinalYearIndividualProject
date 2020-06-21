@@ -1,0 +1,59 @@
+.swipe-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+
+.swipe-options-container {
+  background-color: blue;
+  height: 100px;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.swipe-profile {
+  background-color: red;
+  flex-grow: 1;
+  width: 80%;
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.swipe-profile .swipe-profile-image-container {
+  height: 100%;
+  width: auto;
+  float: left;
+}
+
+.swipe-profile .swipe-profile-image-container img {
+  height: 100%;
+  width: auto;
+}
+
+.swipe-profile .swipe-profile-text-container {
+  height: 100%;
+  float: right;
+  flex-grow: 1;
+}
+
+.swipe-buttons-container {
+  height: 100px;
+  margin-bottom: 100px;
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.swipe-buttons-container button {
+  border-radius: 1px;
+  border-color: #e6f9ef;
+  border-style: solid;
+  height: 100px;
+  width: 100px;
+}
+
+

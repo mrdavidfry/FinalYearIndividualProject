@@ -1,0 +1,26 @@
+<div *ngIf="profiles[0]"  class="grid">
+
+  <div class="match-display-container">
+
+    <h2 class="app-header-style-medium">Matches    |     Chats</h2>
+
+  </div>
+
+  <div class="profile-display-container">
+
+    <img src="http://68.media.tumblr.com/69ab57c6843a2f95d1537594f7f8989d/tumblr_oiahlyux3S1t658edo1_1280.jpg">
+
+  </div>
+
+  <div class="controls-container">
+    <button id="flagButton" mat-icon-button><mat-icon>flag</mat-icon></button>
+    <button id="rejectButton" mat-icon-button (click)="swipeProfile(profiles[0].userId, 0)"><mat-icon>clear</mat-icon></button>
+    <button id="hotButton" mat-icon-button (click)="swipeProfile(profiles[0].userId, 2)"><mat-icon>whatshot</mat-icon></button>
+    <button id="likeButton" mat-icon-button (click)="swipeProfile(profiles[0].userId, 1)"><mat-icon>check</mat-icon></button>
+  </div>
+
+</div>
+
+<div *ngIf="!profiles[0]">
+  No profiles left to show. Come back later!
+</div>

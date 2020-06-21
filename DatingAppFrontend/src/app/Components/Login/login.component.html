@@ -1,0 +1,46 @@
+<div class="loginComponent">
+
+  <mat-horizontal-stepper linear>
+    <ng-template matStepperIcon="number">
+      <mat-icon ></mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="done">
+      <mat-icon></mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="edit">
+      <mat-icon></mat-icon>
+    </ng-template>
+    <mat-step label="Submit" [completed]="loginForm.valid">
+      <h1 class="app-header-style">Login</h1>
+      <form [formGroup]="loginForm">
+        <mat-form-field>
+          <mat-select placeholder="Select a dialing code" formControlName="countryCallingCode">
+            <mat-option *ngFor="let code of phoneCountryCodes" value="{{code}}">{{code}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone number</mat-label>
+          <input matInput required number formControlName="phoneNumber">
+        </mat-form-field>
+        <button mat-raised-button matStepperNext class="small-btn" type="submit" [disabled]="!loginForm.valid" (click)="submitLoginRequest()">Next</button>
+      </form>
+    </mat-step>
+    <mat-step #step2 label="Verify" [completed]="authenticateForm.valid">
+      <h1 class="app-header-style">Verification code sent to +{{loginForm.get('countryCallingCode').value + loginForm.get('phoneNumber').value}}</h1>
+      <form [formGroup]="authenticateForm">
+        <mat-form-field>
+          <mat-label>Enter 6-digit code here</mat-label>
+          <input matInput required formControlName="verifyCode">
+        </mat-form-field>
+      </form>
+      <div class="flex-between-container">
+        <button mat-raised-button matStepperPrevious class="small-btn very-small-btn-size">Back</button>
+        <button mat-raised-button class="small-btn very-small-btn-size">Resend</button>
+        <button mat-raised-button matStepperNext class="small-btn very-small-btn-size" type="submit" [disabled]="!authenticateForm.valid" (click)="submitVerifyCode()">Submit</button>
+      </div>
+    </mat-step>
+    <mat-step label="Done">
+      <h1 class="app-header-style">Done!</h1>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

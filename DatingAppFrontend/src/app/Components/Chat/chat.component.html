@@ -1,0 +1,56 @@
+<div *ngIf="matches.length > 0" class="chatpage-grid">
+  <div class="matches-display">
+    <h2>My matches</h2>
+
+    <div>
+      <div [matBadge] = "!match.hasReadAllMessages ? 1 : null" matBadgePosition="before" matBadgeColor="warn" *ngFor="let match of matches" class="match-display">
+        <img [src]="match.userImages[0] != null ? match.userImages[0] : '../../../../assets/Images/blankprofileimage.png'"/>
+        <button mat-raised-button (click)="getChat(match)">{{match.firstName}} {{match.lastName}}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="chatbox">
+    <div class="chat-logs">
+      <div class="chat-message-container" *ngFor="let message of messages" >
+
+        <div *ngIf="message.sentByMe" class="chat me">
+          <div class="user-photo">
+            <img [src]="myProfile.imagesUrls[0] != null ? myProfile.imagesUrls[0] : '../../../../assets/Images/blankprofileimage.png'">
+          </div>
+          <p class="chat-message">{{message.chatMessage}}</p>
+        </div>
+
+        <div *ngIf="!message.sentByMe" class="chat match">
+          <div class="user-photo">
+            <img [src]="curMatch.userImages[0] != null ? curMatch.userImages[0] : '../../../../assets/Images/blankprofileimage.png'">
+          </div>
+          <p class="chat-message">{{message.chatMessage}}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <form [formGroup]="sendMessageForm">
+        <textarea class="message-input" type="textarea" matInput formControlName="message" formControlName="message"></textarea>
+      <button mat-raised-button (click)="sendMessage()">Send</button>
+    </form>
+
+  </div>
+
+
+  <div *ngIf='this.curMatch' class="match-profile">
+    <img [src]="curMatch.userImages[0] != null ? curMatch.userImages[0] : '../../../../assets/Images/blankprofileimage.png'">
+    <button mat-raised-button (click)="openConfirmUnmatchDialog(curMatch)">Unmatch</button>
+    <button mat-raised-button (click)="openReportDialog(curMatch.userId)">Report</button>
+
+  </div>
+
+</div>
+
+<div class="no-matches-container" *ngIf="matches.length <= 0">
+  <div class="flex-item">
+    <h2>You have no matches.</h2>
+    <h2>Keep swiping and come back later.</h2>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="editProfileWindow">
+
+  <div class="images-container">
+
+    <div *ngFor="let item of lengthSixArray; let i = index;" class="image-container">
+      <img [src]="myProfile.imageUrls[i] != null ? myProfile.imageUrls[i] : '../../../../assets/Images/blankprofileimage.png'" (click)="imageInput.click()" class="profile-image">
+      <input type="file" accept="image/*"
+             (change)="onImageSelected($event, ((myProfile.imageUrls.length - 1>= i  && myProfile.imageUrls.length > 0) ?
+             i : myProfile.imageUrls.length))" #imageInput hidden>
+    </div>
+  </div>
+
+  <div class="info-container">
+    <form class="info-container-grid" [formGroup]="profileForm">
+      <mat-form-field appearance="none">
+        <mat-label>First Name</mat-label>
+        <input class="myprofile-text-input" matInput required formControlName="first_name">
+      </mat-form-field>
+      <mat-form-field appearance="none">
+        <mat-label>Last Name</mat-label>
+        <input class="myprofile-text-input" matInput required formControlName="last_name">
+      </mat-form-field>
+      <mat-form-field appearance="none">
+        <mat-label>Date of Birth</mat-label>
+        <input class="myprofile-text-input" matInput [matDatepicker]="myDatePicker" required formControlName="date_of_birth">
+        <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #myDatePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="none"s>
+        <mat-label>Email (Optional)</mat-label>
+        <input  class="myprofile-text-input"  matInput email formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="my-profile-description-container" appearance="none">
+        <mat-label>Description</mat-label>
+        <textarea class="myprofile-text-input" matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <button mat-raised-button type="submit" (click)="OnSubmit()">Update Details</button>
+    </form>
+  </div>
+  <div>
+<!--    <button>Connect my Facebook</button>-->
+<!--    <button>Connect my Instagram</button>-->
+<!--    <button>Connect my Linkedin</button>-->
+<!--    <button>Connect my Twitch</button>-->
+  </div>
+  <button mat-raised-button (click)="openDeleteAccountDialog()">Delete my account</button>
+</div>
+

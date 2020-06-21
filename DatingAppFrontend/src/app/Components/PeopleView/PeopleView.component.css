@@ -1,0 +1,147 @@
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.main-container .selection-bar-container {
+  margin: 10px;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container .selection-bar-container .selection-bar {
+  background-color: #222222;
+  color: #ffffff;
+  width: 510px;
+  height: 100%;
+  box-shadow: 0px 0px 10px 5px #e4e4e4;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container .selection-bar-container .selection-bar .checkbox-container {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.main-container .selection-bar input, label, button, h3 {
+  padding: 5px;
+  margin: 5px;
+}
+
+.main-container .selection-bar button, h3 {
+  align-self: center;
+}
+
+.main-container .selection-bar button {
+  background-color: #ACD581;
+  border-radius: 1px;
+  border-color: #ffffff;
+  width: 100px;
+}
+
+.main-container .selection-bar label {
+  margin: 2px;
+}
+
+.profile-container {
+  margin: 10px;
+  padding: 10px;
+  float:left;
+  display:inline;
+  width: 550px;
+  height: 300px;
+  border-radius: 25px;
+  background: #cae3f9;
+  box-shadow: 0px 0px 10px 5px #e4e4e4;
+}
+
+.profile-container p {
+  margin: 10px;
+}
+
+.profile-container h2 {
+  margin: 20px;
+}
+
+.profile-container .profile-image {
+  margin: 20px;
+  float: left;
+  border-radius: 0px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
+  border-width: 2px;
+  height: 250px;
+  width: 250px;
+}
+
+.profile-container img .report-icon {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  top: 100%;
+  right: 0%;
+}
+
+.profile-container .additional-detail {
+  font-size: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 600px) {
+
+  .main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-container {
+    float:left; display:inline;
+    width: 90vw;
+    height: auto;
+    border-radius: 25px;
+    background: #cae3f9;
+    display: inline-block;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-container .profile-image {
+    margin: 20px;
+    float: left;
+    border-radius: 125px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px;
+    height: auto;
+    width: 80%;
+  }
+
+  .main-container .selection-bar-container {
+    height: 150px;
+  }
+
+}

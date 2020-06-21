@@ -1,0 +1,14 @@
+<header class="header">
+  <a class="logo" routerLink="selection">Bridge.</a>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="nav-icon"></span></label>
+  <ul class="menu">
+    <li *ngIf="authService.isUerLoggedIn()"><a routerLink="finder">Find People</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScBKl5gpdRHjc4xpy-5HCvsumpsv-67C2k5tZo9PTJzVnFNHw/viewform?fbclid=IwAR1jurXbG-iMLW9K_9fwuWBGE4JaClc10XrtOs-UVFIWxX-AWkPM0EfHBfA">Submit App Feedback</a></li>
+<!--    <li *ngIf="authService.isUerLoggedIn()"><a routerLink="events">My Events</a></li>-->
+    <li *ngIf="authService.isUerLoggedIn()"><a routerLink="chat">My Messages</a></li>
+    <li *ngIf="authService.isUerLoggedIn()"><a routerLink="myprofile">My Profile</a></li>
+    <li *ngIf="authService.isUerLoggedIn()"><a routerLink="logout">Logout</a></li>
+  </ul>
+<!--*ngIf="authService.isUerLoggedIn()"-->
+</header>

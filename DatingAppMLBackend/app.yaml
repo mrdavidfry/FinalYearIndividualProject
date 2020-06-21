@@ -1,0 +1,11 @@
+resources:
+  cpu: 2
+  memory_gb: 4
+  disk_size_gb: 10
+
+runtime: python
+env: flex
+entrypoint: export FLASK_RUN_PORT=$PORT && flask run --host=0.0.0.0
+
+runtime_config:
+  python_version: 3

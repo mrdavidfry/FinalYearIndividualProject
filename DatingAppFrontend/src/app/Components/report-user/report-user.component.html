@@ -1,0 +1,13 @@
+<form [formGroup]="reportForm">
+  <mat-form-field>
+    <mat-select placeholder="Select a reason" formControlName="reportType">
+      <mat-option *ngFor="let code of reportTypes" value="{{code}}">{{code}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Additional comments</mat-label>
+    <input matInput formControlName="comment">
+  </mat-form-field>
+  <button mat-raised-button class="small-btn" type="submit" [disabled]="!reportForm.valid" (click)="submitReport()">Submit</button>
+  <button mat-raised-button (click)="closeDialog()">Go Back</button>
+</form>

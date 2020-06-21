@@ -1,0 +1,59 @@
+<div class="registerComponent">
+  <mat-horizontal-stepper linear>
+    <mat-step label="Register" [completed]="registerForm.valid">
+      <h1 class="app-header-style">Register</h1>
+      <form [formGroup]="registerForm">
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput required formControlName="first_name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput required formControlName="last_name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <input matInput required formControlName="gender">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="myDatePicker" required formControlName="date_of_birth">
+          <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #myDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Select a dialing code" formControlName="country_calling_code">
+            <mat-option *ngFor="let code of phoneCountryCodes" value="{{code}}">{{code}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone number</mat-label>
+          <input matInput required formControlName="regional_phone_number">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email (Optional)</mat-label>
+          <input matInput formControlName="email" email>
+        </mat-form-field>
+
+        <button mat-raised-button matStepperNext class="small-btn" type="submit" [disabled]="!registerForm.valid" (click)="OnSubmit()">Next</button>
+      </form>
+    </mat-step>
+    <mat-step #step2 label="Verify" [completed]="authenticateForm.valid">
+      <h1 class="app-header-style">Verification code sent to +{{registerForm.get('country_calling_code').value + registerForm.get('regional_phone_number').value}}</h1>
+      <form [formGroup]="authenticateForm">
+        <mat-form-field>
+          <mat-label>Enter 6-digit code here</mat-label>
+          <input matInput required formControlName="verificationCode">
+        </mat-form-field>
+      </form>
+      <div class="flex-between-container">
+        <button mat-raised-button matStepperPrevious class="small-btn">Back</button>
+        <button mat-raised-button class="small-btn" (click)="OnSubmit()">Resend</button>
+        <button mat-raised-button matStepperNext class="small-btn" type="submit" [disabled]="!authenticateForm.valid" (click)="submitVerifyForm()">Submit</button>
+      </div>
+    </mat-step>
+    <mat-step label="Done">
+      <h1 class="app-header-style">Done!</h1>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
